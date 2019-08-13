@@ -1,0 +1,47 @@
+unit U_Relatorio1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, QuickRpt, QRCtrls;
+
+type
+  TfrmRelatorio1 = class(TForm)
+    qckrp1: TQuickRep;
+    qrbndTitleBand1: TQRBand;
+    qrbndPageHeaderBand1: TQRBand;
+    qrlbl1: TQRLabel;
+    qrdbtxtNOME_FUNCIONARIO: TQRDBText;
+    qrdbtxtFUNCAO_FUNCIONARIO: TQRDBText;
+    qrlbl2: TQRLabel;
+    qrlbl3: TQRLabel;
+    qrlbl4: TQRLabel;
+    qrlbl5: TQRLabel;
+    qrsysdt1: TQRSysData;
+    qrbndTitleBand2: TQRBand;
+    qrlbl6: TQRLabel;
+    qrlbl7: TQRLabel;
+    qrdbtxtDATA_PONTO: TQRDBText;
+    qrdbtxtENTRADA: TQRDBText;
+    qrdbtxtSAIDA_ALMOCO: TQRDBText;
+    qrdbtxtRETORNO_ALMOCO: TQRDBText;
+    qrdbtxtSAIDA: TQRDBText;
+    qrdbtxtMES: TQRDBText;
+    qrdbtxtANO: TQRDBText;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmRelatorio1: TfrmRelatorio1;
+
+implementation
+
+uses U_dmPrincipal;
+
+{$R *.dfm}
+
+end.
