@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/09/10 18:19:37.000.201,=C:\Users\Adriana Garibalde\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/04/26 16:35:41.000.186,=C:\Users\Adriana Garibalde\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/06/14 17:42:47.000.433,=C:\Users\Adriana Garibalde\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/06/14 17:43:23.000.807,D:\Delphi\TrabalhoAlterdata\P_Principal.pas=C:\Users\Adriana Garibalde\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/06/14 17:43:23.000.807,D:\Delphi\TrabalhoAlterdata\P_Principal.dfm=C:\Users\Adriana Garibalde\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2019/06/14 17:43:41.000.145,D:\Delphi\TrabalhoAlterdata\ProjetoAlterdata.dproj=C:\Users\Adriana Garibalde\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2019/06/14 17:43:53.000.113,=D:\Delphi\TrabalhoAlterdata\Unit1.pas</Transaction>
+    <Transaction>2019/06/14 17:44:33.000.735,D:\Delphi\TrabalhoAlterdata\YMOFXReader_2.pas=D:\Delphi\TrabalhoAlterdata\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>
