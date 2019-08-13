@@ -1,0 +1,38 @@
+unit U_Problema4;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls;
+
+type
+  TfrmPingPong = class(TForm)
+    btn1: TButton;
+    pnl1: TPanel;
+    pnl2: TPanel;
+    pnl3: TPanel;
+    lbl1: TLabel;
+    lbl3: TLabel;
+    pnlJogador1: TPanel;
+    pnlJogador2: TPanel;
+    pnlLancamento: TPanel;
+    lbl2: TLabel;
+    edtQuantidade: TEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    nQuantidade : Integer;
+  end;
+
+var
+  frmPingPong: TfrmPingPong;
+
+implementation
+uses U_LancaPonto;
+
+{$R *.dfm}
+
+
+end.

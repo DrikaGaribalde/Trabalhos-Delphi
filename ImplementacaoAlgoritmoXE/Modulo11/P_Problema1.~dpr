@@ -1,0 +1,13 @@
+program P_Problema1;
+
+uses
+  Forms,
+  U_Problema1 in 'U_Problema1.pas' {Form1};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

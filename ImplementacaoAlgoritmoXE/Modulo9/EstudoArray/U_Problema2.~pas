@@ -1,0 +1,94 @@
+unit U_Problema2;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  TfrmNumerosPares = class(TForm)
+    lbl1: TLabel;
+    edtNumero: TEdit;
+    lst1: TListBox;
+    btnAceitaNumeros: TButton;
+    btnExibe: TButton;
+    procedure edtNumeroKeyPress(Sender: TObject; var Key: Char);
+    procedure btnAceitaNumerosClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure btnExibeClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmNumerosPares: TfrmNumerosPares;
+  //
+  qtdeNumeros : Integer;
+  numeros : array[1..10] of Integer;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmNumerosPares.edtNumeroKeyPress(Sender: TObject;
+  var Key: Char);
+begin
+  if not (Key in ['0'..'9',#8])then
+    begin
+      ShowMessage('Digite apenas números inteiros');
+      Key := #0;
+    end;
+end;
+
+procedure TfrmNumerosPares.btnAceitaNumerosClick(Sender: TObject);
+begin
+  if Length(Trim(edtNumero.Text))=0 then
+    begin
+      ShowMessage('Digite um número inteiro e positivo');
+      edtNumero.SetFocus;
+      Abort;
+    end;
+    //
+
+    if (qtdeNumeros = 10) then
+      begin
+        ShowMessage('Digitação Concluída');
+        btnAceitaNumeros.Enabled := False;
+        btnExibe.Enabled := True;
+        edtNumero.Enabled := false;
+        edtNumero.Text := #0;
+      end
+    else
+      begin
+         inc(qtdeNumeros);
+         numeros[qtdeNumeros] := StrToInt(edtNumero.Text);
+         edtNumero.Text := #0;
+         edtNumero.SetFocus;
+      end;
+
+end;
+
+procedure TfrmNumerosPares.FormCreate(Sender: TObject);
+begin
+  qtdeNumeros := 0;
+  btnExibe.Enabled := False;
+end;
+
+procedure TfrmNumerosPares.btnExibeClick(Sender: TObject);
+var i : Integer;
+begin
+  lst1.Clear;
+  for i := 1 to 10 do
+  begin
+    if (numeros[i] mod 2) = 0 then
+      lst1.Items.Add(IntToStr(numeros[i]));
+  end;
+  btnAceitaNumeros.Enabled := True;
+  btnExibe.Enabled := False;
+
+end;
+
+end.

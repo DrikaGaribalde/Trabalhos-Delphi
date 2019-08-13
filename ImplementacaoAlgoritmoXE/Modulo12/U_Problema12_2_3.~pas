@@ -1,0 +1,33 @@
+unit U_Problema12_2_3;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ComCtrls, StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    grpDados: TGroupBox;
+    lbl1: TLabel;
+    lbl2: TLabel;
+    edtDeposito: TEdit;
+    edtTaxaAnual: TEdit;
+    btnProjecao: TButton;
+    lvDados: TListView;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+ function calcularGanho(valor,taxa : Real) : Real;
+ procedure inserirExtrato(mes:string; inicio, ganho, final:Real);
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+end.

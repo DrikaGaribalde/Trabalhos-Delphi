@@ -1,0 +1,27 @@
+unit U_Problema7_1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls;
+
+type
+  TfrmLancaValores = class(TForm)
+    lbl1: TLabel;
+    edtPares: TEdit;
+    btnConfirmar: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmLancaValores: TfrmLancaValores;
+
+implementation
+
+{$R *.dfm}
+
+end.

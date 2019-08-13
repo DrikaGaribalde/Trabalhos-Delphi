@@ -1,0 +1,272 @@
+object dmModulo: TdmModulo
+  OldCreateOrder = False
+  Left = 833
+  Top = 182
+  Height = 400
+  Width = 519
+  object ibdtbsDB: TIBDatabase
+    DatabaseName = 'D:\Delphi\livroImplAlgoritmo\Exercicios\Modulo14\TESTELIVRO.FDB'
+    Params.Strings = (
+      'user_name=SYSDBA'
+      'password=masterkey')
+    LoginPrompt = False
+    IdleTimer = 0
+    SQLDialect = 3
+    TraceFlags = []
+    Left = 80
+    Top = 24
+  end
+  object DML: TIBSQL
+    Database = ibdtbsDB
+    ParamCheck = True
+    Transaction = ibtrnsctnT
+    Left = 192
+    Top = 24
+  end
+  object ibtrnsctnT: TIBTransaction
+    Active = False
+    DefaultDatabase = ibdtbsDB
+    AutoStopAction = saNone
+    Left = 136
+    Top = 24
+  end
+  object IBDataSetConta: TIBDataSet
+    Database = ibdtbsDB
+    Transaction = ibtrnsctnT
+    AfterInsert = IBDataSetContaAfterInsert
+    OnNewRecord = IBDataSetContaNewRecord
+    BufferChunks = 1000
+    CachedUpdates = False
+    DeleteSQL.Strings = (
+      'delete from CONTA'
+      'where'
+      '  NUMEROCONTA = :OLD_NUMEROCONTA')
+    InsertSQL.Strings = (
+      'insert into CONTA'
+      '  (NUMEROCONTA, CORRENTISTA, SALDO)'
+      'values'
+      '  (:NUMEROCONTA, :CORRENTISTA, :SALDO)')
+    RefreshSQL.Strings = (
+      'Select '
+      '  NUMEROCONTA,'
+      '  CORRENTISTA,'
+      '  SALDO'
+      'from CONTA '
+      'where'
+      '  NUMEROCONTA = :NUMEROCONTA')
+    SelectSQL.Strings = (
+      'select * from CONTA')
+    ModifySQL.Strings = (
+      'update CONTA'
+      'set'
+      '  NUMEROCONTA = :NUMEROCONTA,'
+      '  CORRENTISTA = :CORRENTISTA,'
+      '  SALDO = :SALDO'
+      'where'
+      '  NUMEROCONTA = :OLD_NUMEROCONTA')
+    Left = 64
+    Top = 112
+    object ibstrngfldIBDataSetContaNUMEROCONTA: TIBStringField
+      FieldName = 'NUMEROCONTA'
+      Origin = 'CONTA.NUMEROCONTA'
+      Required = True
+      Size = 15
+    end
+    object ibstrngfldIBDataSetContaCORRENTISTA: TIBStringField
+      FieldName = 'CORRENTISTA'
+      Origin = 'CONTA.CORRENTISTA'
+      Required = True
+      Size = 32
+    end
+    object cdsIBDataSetContaSALDO: TFloatField
+      FieldName = 'SALDO'
+      Origin = 'CONTA.SALDO'
+    end
+  end
+  object dtsConta: TDataSource
+    DataSet = IBDataSetConta
+    Left = 163
+    Top = 112
+  end
+  object IBDataSetLancamento: TIBDataSet
+    Database = ibdtbsDB
+    Transaction = ibtrnsctnT
+    BufferChunks = 1000
+    CachedUpdates = False
+    DeleteSQL.Strings = (
+      'delete from LANCAMENTOS'
+      'where'
+      '  NUMERODOCUMENT = :OLD_NUMERODOCUMENT')
+    InsertSQL.Strings = (
+      'insert into LANCAMENTOS'
+      
+        '  (NUMEROCONTA, CODIGOTIPOOPER, NUMERODOCUMENT, HISTORICO, DATA,' +
+        ' VALOR)'
+      'values'
+      
+        '  (:NUMEROCONTA, :CODIGOTIPOOPER, :NUMERODOCUMENT, :HISTORICO, :' +
+        'DATA, :VALOR)')
+    RefreshSQL.Strings = (
+      'Select '
+      '  NUMEROCONTA,'
+      '  CODIGOTIPOOPER,'
+      '  NUMERODOCUMENT,'
+      '  HISTORICO,'
+      '  DATA,'
+      '  VALOR'
+      'from LANCAMENTOS '
+      'where'
+      '  NUMERODOCUMENT = :NUMERODOCUMENT')
+    SelectSQL.Strings = (
+      'select * from LANCAMENTOS')
+    ModifySQL.Strings = (
+      'update LANCAMENTOS'
+      'set'
+      '  NUMEROCONTA = :NUMEROCONTA,'
+      '  CODIGOTIPOOPER = :CODIGOTIPOOPER,'
+      '  NUMERODOCUMENT = :NUMERODOCUMENT,'
+      '  HISTORICO = :HISTORICO,'
+      '  DATA = :DATA,'
+      '  VALOR = :VALOR'
+      'where'
+      '  NUMERODOCUMENT = :OLD_NUMERODOCUMENT')
+    Left = 64
+    Top = 176
+    object ibstrngfldIBDataSetLancamentoNUMEROCONTA: TIBStringField
+      FieldName = 'NUMEROCONTA'
+      Origin = 'LANCAMENTOS.NUMEROCONTA'
+      Required = True
+      Size = 15
+    end
+    object ibstrngfldIBDataSetLancamentoCODIGOTIPOOPER: TIBStringField
+      FieldName = 'CODIGOTIPOOPER'
+      Origin = 'LANCAMENTOS.CODIGOTIPOOPER'
+      Required = True
+      Size = 3
+    end
+    object ibstrngfldIBDataSetLancamentoNUMERODOCUMENT: TIBStringField
+      FieldName = 'NUMERODOCUMENT'
+      Origin = 'LANCAMENTOS.NUMERODOCUMENT'
+      Required = True
+      Size = 15
+    end
+    object ibstrngfldIBDataSetLancamentoHISTORICO: TIBStringField
+      FieldName = 'HISTORICO'
+      Origin = 'LANCAMENTOS.HISTORICO'
+      Required = True
+      Size = 32
+    end
+    object IBDataSetLancamentoDATA: TDateField
+      FieldName = 'DATA'
+      Origin = 'LANCAMENTOS.DATA'
+    end
+    object cdsIBDataSetLancamentoVALOR: TFloatField
+      FieldName = 'VALOR'
+      Origin = 'LANCAMENTOS.VALOR'
+    end
+  end
+  object dtsLancamento: TDataSource
+    DataSet = IBDataSetLancamento
+    Left = 163
+    Top = 176
+  end
+  object IBDataSetTipos: TIBDataSet
+    Database = ibdtbsDB
+    Transaction = ibtrnsctnT
+    BufferChunks = 1000
+    CachedUpdates = False
+    DeleteSQL.Strings = (
+      'delete from TIPOSDEOPERACOES'
+      'where'
+      '  CODIGOTIPOOPER = :OLD_CODIGOTIPOOPER')
+    InsertSQL.Strings = (
+      'insert into TIPOSDEOPERACOES'
+      '  (CODIGOTIPOOPER, NOME, TIPO)'
+      'values'
+      '  (:CODIGOTIPOOPER, :NOME, :TIPO)')
+    RefreshSQL.Strings = (
+      'Select '
+      '  CODIGOTIPOOPER,'
+      '  NOME,'
+      '  TIPO'
+      'from TIPOSDEOPERACOES '
+      'where'
+      '  CODIGOTIPOOPER = :CODIGOTIPOOPER')
+    SelectSQL.Strings = (
+      'select * from TIPOSDEOPERACOES')
+    ModifySQL.Strings = (
+      'update TIPOSDEOPERACOES'
+      'set'
+      '  CODIGOTIPOOPER = :CODIGOTIPOOPER,'
+      '  NOME = :NOME,'
+      '  TIPO = :TIPO'
+      'where'
+      '  CODIGOTIPOOPER = :OLD_CODIGOTIPOOPER')
+    Left = 64
+    Top = 248
+    object ibstrngfldIBDataSetTiposCODIGOTIPOOPER: TIBStringField
+      FieldName = 'CODIGOTIPOOPER'
+      Origin = 'TIPOSDEOPERACOES.CODIGOTIPOOPER'
+      Required = True
+      Size = 3
+    end
+    object ibstrngfldIBDataSetTiposNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = 'TIPOSDEOPERACOES.NOME'
+      Required = True
+      Size = 32
+    end
+    object ibstrngfldIBDataSetTiposTIPO: TIBStringField
+      FieldName = 'TIPO'
+      Origin = 'TIPOSDEOPERACOES.TIPO'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object dtsTipos: TDataSource
+    DataSet = IBDataSetTipos
+    Left = 163
+    Top = 248
+  end
+  object IBDataSetConsultaLancamento: TIBDataSet
+    Database = ibdtbsDB
+    Transaction = ibtrnsctnT
+    BufferChunks = 1000
+    CachedUpdates = False
+    SelectSQL.Strings = (
+      'select l.data "Data",l.numerodocument "Documento", '
+      '   l.historico "Hist'#243'rico", l.valor "Valor"'
+      'from conta c'
+      '  inner join lancamentos l'
+      '  on c.numeroconta = l.numeroconta'
+      'where (l.numeroconta = :CONTA)'
+      'order by l.data')
+    Left = 280
+    Top = 176
+    object IBDataSetConsultaLancamentoDATA: TDateField
+      FieldName = 'DATA'
+      Origin = 'LANCAMENTOS.DATA'
+    end
+    object ibstrngfldIBDataSetConsultaLancamentoDOCUMENTO: TIBStringField
+      FieldName = 'DOCUMENTO'
+      Origin = 'LANCAMENTOS.NUMERODOCUMENT'
+      Required = True
+      Size = 15
+    end
+    object ibstrngfldIBDataSetConsultaLancamentoHISTRICO: TIBStringField
+      FieldName = 'HIST'#211'RICO'
+      Origin = 'LANCAMENTOS.HISTORICO'
+      Required = True
+      Size = 32
+    end
+    object cdsIBDataSetConsultaLancamentoVALOR: TFloatField
+      FieldName = 'VALOR'
+      Origin = 'LANCAMENTOS.VALOR'
+    end
+  end
+  object dtsConsultaLancamento: TDataSource
+    DataSet = IBDataSetConsultaLancamento
+    Left = 419
+    Top = 176
+  end
+end

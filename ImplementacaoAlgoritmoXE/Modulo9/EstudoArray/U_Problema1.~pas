@@ -1,0 +1,53 @@
+unit U_Problema1;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Mask;
+
+type
+  TfrmDiaDaSemana = class(TForm)
+    msk1: TMaskEdit;
+    btnVerifica: TBitBtn;
+    lbl1: TLabel;
+    btnSair: TBitBtn;
+    procedure btnVerificaClick(Sender: TObject);
+    procedure btnSairClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmDiaDaSemana: TfrmDiaDaSemana;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmDiaDaSemana.btnVerificaClick(Sender: TObject);
+var
+  DiaDaSemana : array[1..7] of string;
+  DiaSemanaNumero : integer;
+begin
+  DiaDaSemana[1] := 'Domingo';
+  DiaDaSemana[2] := 'Segunda-feira';
+  DiaDaSemana[3] := 'Terça-feira';
+  DiaDaSemana[4] := 'Quarta-feira';
+  DiaDaSemana[5] := 'Quinta-feira';
+  DiaDaSemana[6] := 'Sexta-feira';
+  DiaDaSemana[7] := 'Sábado';
+  //
+  DiaSemanaNumero := DayOfWeek(StrToDate(msk1.Text));
+  lbl1.Caption  :=  Diadasemana[diasemananumero];
+
+end;
+
+procedure TfrmDiaDaSemana.btnSairClick(Sender: TObject);
+begin
+  close;
+end;
+
+end.

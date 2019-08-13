@@ -1,0 +1,14 @@
+program P_Problema7;
+
+uses
+  Forms,
+  U_Problema7 in 'U_Problema7.pas' {Form1},
+  U_Problema7_1 in 'U_Problema7_1.pas' {frmLancaValores};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

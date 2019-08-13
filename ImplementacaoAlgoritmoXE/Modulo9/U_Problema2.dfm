@@ -1,0 +1,82 @@
+object frmNumerosPares: TfrmNumerosPares
+  Left = 229
+  Top = 124
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsDialog
+  Caption = 'Problema 2'
+  ClientHeight = 237
+  ClientWidth = 332
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object lbl1: TLabel
+    Left = 24
+    Top = 16
+    Width = 131
+    Height = 24
+    Caption = 'N'#250'meros Pares'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lbl2: TLabel
+    Left = 24
+    Top = 56
+    Width = 43
+    Height = 13
+    Caption = 'N'#250'mero: '
+  end
+  object edtNumero: TEdit
+    Left = 68
+    Top = 56
+    Width = 121
+    Height = 21
+    TabOrder = 0
+    OnKeyPress = edtNumeroKeyPress
+  end
+  object grpNumeroPares: TGroupBox
+    Left = 24
+    Top = 80
+    Width = 185
+    Height = 145
+    Caption = 'N'#250'meros Pares '
+    TabOrder = 1
+    object lstPares: TListBox
+      Left = 4
+      Top = 14
+      Width = 176
+      Height = 126
+      Enabled = False
+      ItemHeight = 13
+      TabOrder = 0
+    end
+  end
+  object btnAceita: TButton
+    Left = 220
+    Top = 56
+    Width = 107
+    Height = 25
+    Caption = 'Aceita N'#250'mero'
+    TabOrder = 2
+    OnClick = btnAceitaClick
+  end
+  object btnPares: TButton
+    Left = 220
+    Top = 88
+    Width = 107
+    Height = 25
+    Caption = 'Exibir os Pares'
+    TabOrder = 3
+    OnClick = btnParesClick
+  end
+end

@@ -1,0 +1,97 @@
+unit U_Problema5;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls;
+
+type
+  TfrmReajuste = class(TForm)
+    pnl1: TPanel;
+    lbl1: TLabel;
+    lbl2: TLabel;
+    lbl3: TLabel;
+    lblAntes: TLabel;
+    lblApos: TLabel;
+    lblPercentual: TLabel;
+    btnIniciar: TButton;
+    procedure btnIniciarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    nQuantidade: Integer;
+  end;
+
+var
+  frmReajuste: TfrmReajuste;
+
+implementation
+
+uses U_Problema5_1;
+
+{$R *.dfm}
+
+procedure TfrmReajuste.btnIniciarClick(Sender: TObject);
+var
+  Percentual: Extended;
+begin
+  if(btnIniciar.Tag = 0 ) then
+  begin
+    btnIniciar.Tag := 1;
+    frmLancaSalario := TfrmLancaSalario.Create(Self);
+    //
+    while (frmLancaSalario.edtCodigo.Text <> 'FIM') do
+    begin
+      frmLancaSalario.edtSalario.Text:= '0';
+      frmLancaSalario.edtCodigo.Clear;
+      frmLancaSalario.ShowModal;
+      //
+      if(frmLancaSalario.nSalario < 500) then
+        Percentual := 1.15
+      else if (frmLancaSalario.nSalario <= 1000) then
+        Percentual := 1.10
+      else
+        Percentual := 1.05;
+
+      //
+      lblAntes.Caption:= FloatToStr(StrToFloat(lblAntes.Caption)+
+      StrToFloat(frmLancaSalario.edtSalario.Text));
+
+      lblApos.Caption := FloatToStr(StrToFloat(lblApos.Caption) +
+      StrToFloat(frmLancaSalario.edtSalario.Text)* Percentual);
+      //
+      try
+        lblPercentual.Caption := FloatToStr(StrToFloat(lblApos.Caption)-
+                                 StrToFloat(lblAntes.Caption));
+      except
+        lblPercentual.Caption :='0';
+      end;
+    end;
+    //
+    lblAntes.Font.Color:= clBlue;
+    lblApos.Font.Color := clBlue;
+    lblPercentual.Font.Color:= clBlue;
+
+    lblAntes.Caption := FormatFloat('###,##0.00', StrToFloat(lblAntes.Caption));
+    lblApos.Caption  := FormatFloat('###,##0.00', StrToFloat(lblApos.Caption));
+    lblPercentual.Caption := FormatFloat('###,##0.00%', StrToFloat(lblPercentual.Caption));
+    //
+    frmLancaSalario.Free;
+    btnIniciar.Caption := 'Novo Lançamento';
+  end
+  else
+  begin
+    btnIniciar.Tag := 0;
+    lblAntes.Font.Color:= clWindowText;
+    lblApos.Font.Color := clWindowText;
+    lblPercentual.Font.Color := clWindowText;
+    lblAntes.Caption := '0';
+    lblApos.Caption  := '0';
+    lblPercentual.Caption:= '0';
+  end;
+
+end;
+
+end.
