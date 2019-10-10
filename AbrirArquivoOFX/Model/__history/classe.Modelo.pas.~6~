@@ -1,0 +1,33 @@
+unit classe.Modelo;
+
+interface
+
+uses YMOFXReader_2, Dialogs, SysUtils, Data.DB;
+
+type
+  TModelo = class(TYMOFXReader)
+  private
+   FobjModelo, FobjOFX: TOfXItem;
+
+  public
+    property objModelo: TOfXItem read FobjModelo write FobjModelo;
+    procedure Salvar(const FobjModelo :TOfXItem);
+    constructor Create;
+  end;
+
+implementation
+
+{ TModelo }
+
+constructor TModelo.Create;
+begin
+//
+end;
+
+procedure TModelo.Salvar(const FobjModelo: TOfXItem);
+begin
+  ShowMessage('Nome' + DateToStr (FobjModelo.MovDate));
+
+end;
+
+end.

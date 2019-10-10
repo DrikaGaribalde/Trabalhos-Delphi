@@ -1,0 +1,27 @@
+unit classe.Controle;
+
+interface
+
+uses
+  System.SysUtils, classe.Modelo;
+
+type
+
+TControle = class(TModelo)
+private
+//
+public
+//  procedure Salvar(objModelo : tof);
+end;
+
+
+implementation
+
+{ TclasseControle }
+
+//procedure TControle.Salvar(const objModelo: TModelo);
+//begin
+    //Validação dos dados para que possam ir para para o Controller
+//    objModelo.Salvar(objModelo);
+//end;
+end.

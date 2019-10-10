@@ -1,0 +1,51 @@
+unit classe.Modelo;
+
+interface
+
+uses YMOFXReader_2, Dialogs, SysUtils, Data.DB, UDados;
+
+type
+  TModeloItem = class(TOFXItem)
+  private
+  public
+    procedure Salvar(const objModeloItem:TModeloItem);
+  end;
+
+type
+  TModelo = class(TYMOFXReader)
+  private
+  public
+//
+end;
+
+implementation
+
+
+procedure TModeloItem.Salvar(const objModeloItem: TModeloItem);
+var
+ _sql: string;
+begin
+//  ShowMessage('Data ' + DateToStr (objModeloItem.MovDate));
+//showmessage('to aqui na classe modelo salvar item');
+//dmMovimento.tblMovimento.Edit;
+//dmMovimento.tblMovimento.FieldByName('data').AsDateTime := objModeloItem.MovDate;
+//dmMovimento.tblMovimento.FieldByName('descricao').AsString   := objModeloItem.Desc;
+//dmMovimento.tblMovimento.FieldByName('valor').AsFloat   := objModeloItem.Value;
+//dmMovimento.tblMovimento.Post;
+ _sql := 'Update movimento ' +
+          'set data = ' +  DateToStr(objModeloItem.MovDate) +
+          ', descricao = ' + QuotedStr(objModeloItem.Desc) +
+          ', valor = ' + QuotedStr(FloatToStr(objModeloItem.Value));
+  with dmMovimento.qryMovimento do
+  begin
+
+    close;
+    sql.Clear;
+    sql.Add(_sql);
+    ExecSQL;
+
+  end;
+//  ShowMessage(_sql);
+end;
+
+end.

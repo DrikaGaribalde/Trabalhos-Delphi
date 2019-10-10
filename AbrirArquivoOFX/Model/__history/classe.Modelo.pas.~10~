@@ -1,0 +1,72 @@
+unit classe.Modelo;
+
+interface
+
+uses YMOFXReader_2, Dialogs, SysUtils, Data.DB, UDados;
+
+type
+  TModeloItem = class(TOFXItem)
+  private
+  public
+    procedure Salvar(const objModeloItem:TModeloItem);
+    procedure Mostrar;
+  end;
+
+type
+  TModelo = class(TYMOFXReader)
+  private
+  public
+//
+end;
+
+implementation
+
+
+
+
+procedure TModeloItem.Mostrar;
+var
+    _sql: string;
+begin
+  _sql := 'select descricao from movimento';
+
+// select sum(cast(valor as float)) as valor from movimento
+  with dmMovimento.qryMovimento do
+  begin
+    close;
+    sql.Clear;
+    sql.Add(_sql);
+    Open;
+    showmessage('classeModelo ' + _sql);
+  end;
+
+end;
+
+procedure TModeloItem.Salvar(const objModeloItem: TModeloItem);
+var
+ _sql: string;
+begin
+//  ShowMessage('Data ' + DateToStr (objModeloItem.MovDate));
+//showmessage('to aqui na classe modelo salvar item');
+//dmMovimento.tblMovimento.Edit;
+//dmMovimento.tblMovimento.FieldByName('data').AsDateTime := objModeloItem.MovDate;
+//dmMovimento.tblMovimento.FieldByName('descricao').AsString   := objModeloItem.Desc;
+//dmMovimento.tblMovimento.FieldByName('valor').AsFloat   := objModeloItem.Value;
+//dmMovimento.tblMovimento.Post;
+ _sql := 'Insert into movimento ' +
+          '(data, descricao, valor )'+
+          'values (' + QuotedStr(DateToStr(objModeloItem.MovDate)) +',' +
+          QuotedStr(objModeloItem.Desc)+ ',' +
+          QuotedStr(FloatToStr(objModeloItem.Value))+ ')';
+
+  with dmMovimento.qryMovimento do
+  begin
+    close;
+    sql.Clear;
+    sql.Add(_sql);
+    ExecSQL;
+  end;
+
+end;
+
+end.

@@ -1,0 +1,32 @@
+object dmMovimento: TdmMovimento
+  OldCreateOrder = False
+  Height = 220
+  Width = 293
+  object conPostgres: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=MSDASQL.1;Persist Security Info=False;Data Source=Postg' +
+      'reSQL30;Initial Catalog=Movimento'
+    LoginPrompt = False
+    Left = 32
+    Top = 32
+  end
+  object tblMovimento: TADOTable
+    Active = True
+    Connection = conPostgres
+    CursorType = ctStatic
+    TableName = 'movimento'
+    Left = 120
+    Top = 32
+  end
+  object qryMovimento: TADOQuery
+    Active = True
+    Connection = conPostgres
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'Select data, descricao, valor, saldo from movimento')
+    Left = 192
+    Top = 32
+  end
+end

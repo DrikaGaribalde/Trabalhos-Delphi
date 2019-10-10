@@ -1,0 +1,14 @@
+CREATE TABLE movimento (
+  data character varying(15),
+  descricao character varying(100),
+  valor real
+);
+
+INSERT INTO public.movimento(
+	data, descricao, valor)
+	VALUES ('21/06/2019', 'Teste', 100),
+           ('21/06/2019', 'Teste2', 20);
+
+/* O nome do banco utilizado é Movimento, sempre crio o banco sem linha de comando */
+/* Crio o banco no Postgres, depois executo o comando acima criando as tabelas dentro de uma Query  */
+/*Ok !*/

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/09/10 18:19:37.000.201,=C:\Users\Adriana Garibalde\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/04/26 16:35:41.000.186,=C:\Users\Adriana Garibalde\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/06/20 09:45:04.000.603,=C:\Users\Adriana Garibalde\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/06/20 09:46:07.000.413,D:\Repositorio\adriana-garibalde\View\classe.VisaoPrincipal.dfm=C:\Users\Adriana Garibalde\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2019/06/20 09:46:07.000.413,D:\Repositorio\adriana-garibalde\View\classe.VisaoPrincipal.pas=C:\Users\Adriana Garibalde\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/06/20 09:46:56.000.053,D:\Repositorio\adriana-garibalde\P_Movimento.dproj=C:\Users\Adriana Garibalde\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2019/06/20 09:55:57.000.531,=D:\Repositorio\adriana-garibalde\Unit1.pas</Transaction>
+    <Transaction>2019/06/20 09:57:04.000.883,D:\Repositorio\adriana-garibalde\View\YMOFXReader_2.pas=D:\Repositorio\adriana-garibalde\Unit1.pas</Transaction>
+    <Transaction>2019/06/20 10:11:31.000.710,=D:\Repositorio\adriana-garibalde\Unit1.pas</Transaction>
+    <Transaction>2019/06/20 10:12:25.000.965,D:\Repositorio\adriana-garibalde\Model\classe.Modelo.pas=D:\Repositorio\adriana-garibalde\Unit1.pas</Transaction>
+    <Transaction>2019/06/20 10:16:56.000.891,D:\Repositorio\adriana-garibalde\Model\YMOFXReader_2.pas=D:\Repositorio\adriana-garibalde\View\YMOFXReader_2.pas</Transaction>
+    <Transaction>2019/06/20 11:10:29.000.076,=D:\Repositorio\adriana-garibalde\Unit1.pas</Transaction>
+    <Transaction>2019/06/20 11:10:55.000.365,D:\Repositorio\adriana-garibalde\Controller\classe.Controle.pas=D:\Repositorio\adriana-garibalde\Unit1.pas</Transaction>
+    <Transaction>2019/06/20 17:04:40.000.068,=D:\Repositorio\adriana-garibalde\Unit1.pas</Transaction>
+    <Transaction>2019/06/20 17:05:12.000.550,D:\Repositorio\adriana-garibalde\Unit1.dfm=D:\Repositorio\adriana-garibalde\Model\UDados.dfm</Transaction>
+    <Transaction>2019/06/20 17:05:12.000.550,D:\Repositorio\adriana-garibalde\Unit1.pas=D:\Repositorio\adriana-garibalde\Model\UDados.pas</Transaction>
+  </Transactions>
+</BorlandProject>

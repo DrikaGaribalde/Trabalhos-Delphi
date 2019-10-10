@@ -1,0 +1,40 @@
+unit classe.Modelo;
+
+interface
+
+uses YMOFXReader_2, Dialogs, SysUtils, Data.DB, UDados;
+
+type
+  TModeloItem = class(TOFXItem)
+  private
+  public
+    procedure Salvar(const objModeloItem: TModeloItem);
+  end;
+
+type
+  TModelo = class(TYMOFXReader)
+  private
+  public
+end;
+
+implementation
+
+procedure TModeloItem.Salvar(const objModeloItem: TModeloItem);
+
+begin
+//   dmMovimento.tblMovimento.Open;
+//   dmMovimento.tblMovimento.Append;
+//   dmMovimento.tblMovimento.FieldByName('data').AsDateTime := objModeloItem.MovDate;
+//   dmMovimento.tblMovimento.FieldByName('descricao').AsString   := objModeloItem.Desc;
+//   dmMovimento.tblMovimento.FieldByName('valor').AsFloat   := objModeloItem.Value;
+//   dmMovimento.tblMovimento.Post;
+
+
+   dmMovimento.tblMovimento.AppendRecord([objModeloItem.MovDate,objModeloItem.Desc,objModeloItem.Value]);
+//   dmMovimento.tblMovimento.FieldByName('data').AsDateTime := objModeloItem.MovDate;
+//   dmMovimento.tblMovimento.FieldByName('descricao').AsString   := objModeloItem.Desc;
+//   dmMovimento.tblMovimento.FieldByName('valor').AsFloat   := objModeloItem.Value;
+
+end;
+
+end.
